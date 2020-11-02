@@ -16,6 +16,13 @@ function checkDashboardHeading(cy, dashboardHeading){
     cy.contains(dashboardHeading)
 }
 
+function checkDashboardFourCats(cy, cat1, cat2, cat3, cat4){
+    cy.contains(cat1)
+    cy.contains(cat2)
+    cy.contains(cat3)
+    cy.contains(cat4)
+}
+
 function performLogout(cy, logoutAssert){
     cy.get(logoutButton).click()
     cy.contains(logoutAssert)
@@ -25,5 +32,6 @@ function performLogout(cy, logoutAssert){
 module.exports = {
     checkTitleOfDashboardPage,
     checkDashboardHeading,
+    checkDashboardFourCats,
     performLogout
 }

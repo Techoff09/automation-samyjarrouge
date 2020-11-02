@@ -2,30 +2,28 @@
 
 
 // Elements cy.get('.username')
-const titleOfDashboardPage = 'Testers Hotel'
+//const titleOfDashboardPage = 'Testers Hotel'
 const logoutButton = '.user > .btn'
 
-// contenAssertion01 = 'Welcome tester01!'
-// contentAssertion02 = 'Login'
 
 // Actions / Functions
 
-function checkTitleOfDashboardPage(cy){
+function checkTitleOfDashboardPage(cy, titleOfDashboardPage){
     cy.title().should('eq', titleOfDashboardPage)  
 }
 
-function checkWelcomeUsername(cy, contentAssertion01){
-    cy.contains(contentAssertion01)
+function checkDashboardHeading(cy, dashboardHeading){
+    cy.contains(dashboardHeading)
 }
 
-function performLogout(cy, contentAssertion02){
+function performLogout(cy, logoutAssert){
     cy.get(logoutButton).click()
-    cy.contains(contentAssertion02)
+    cy.contains(logoutAssert)
 }
 
 // Exports
 module.exports = {
     checkTitleOfDashboardPage,
-    checkWelcomeUsername,
+    checkDashboardHeading,
     performLogout
 }

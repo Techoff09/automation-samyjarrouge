@@ -1,9 +1,11 @@
 /// <reference types="cypress" />
 
+import * as targets from '../targets/targets'
 import * as indexFuncs from '../pages/indexPage'
 import * as dashboardFuncs00 from '../pages/dashboardPage'
-import * as dashboardFuncs01 from '../pages/dashboardCatPages'
-import * as targets from '../targets/targets'
+import * as roomsFuncs01 from '../pages/roomsPage'
+import * as billsFuncs02 from '../pages/billsPage'
+//import { confirmBillsPage } from '../pages/billsPage'
 
 
 // Test suite
@@ -19,29 +21,32 @@ describe('Test suite', function(){
         indexFuncs.confirmIndexPage(cy, targets.titleOfIndexPage, targets.indexPageAssert)
         indexFuncs.performValidLogin(cy, targets.username, targets.password, targets.loginAssert)
         dashboardFuncs00.checkTitleOfDashboardPage(cy, targets.titleOfDashboard)
-        dashboardFuncs00.checkDashboardHeading(cy, targets.dashboardHeading)
+        dashboardFuncs00.checkDashboardPageName(cy, targets.dashboardPageAssert)
         dashboardFuncs00.checkDashboardFourCats(cy, targets.cat1, targets.cat2, 
             targets.cat3, targets.cat4)
     })
 
     // Ending every testcase with perform system logout, return to home page
 
-    /* afterAll(()=>{
+    afterEach(()=>{
         dashboardFuncs00.performLogout(cy, targets.logoutAssert)
-    }) */ 
+    }) 
 
 
 
     // Test-case 01
-    it('Rooms category enter & exit Rooms page', function(){
-        dashboardFuncs01.confirmRoomsPage(cy, targets.cat1, targets.rooms_url, 
-            targets.roomsPageHeader, targets.base_url)
+    it('Rooms page enter & exit ', function(){
+        roomsFuncs01.confirmRoomsPage(cy, targets.rooms_url, 
+           targets.cat1, targets.dash_url)
    }) 
 
     //Test-case 02
-   /* it('Dashboard four categories', function(){
+    it('Bills category', function(){
+        billsFuncs02.confirmBillsPage(cy, targets.billsDashInfo1, targets.billsDashInfo2,
+            targets.cat3, targets.bills_url, targets.newBill_url)
        
-    }) */
+    }) 
+
 
   
 

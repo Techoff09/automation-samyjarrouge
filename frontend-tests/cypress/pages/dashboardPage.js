@@ -12,8 +12,8 @@ function checkTitleOfDashboardPage(cy, titleOfDashboardPage){
     cy.title().should('eq', titleOfDashboardPage)  
 }
 
-function checkDashboardHeading(cy, dashboardHeading){
-    cy.contains(dashboardHeading)
+function checkDashboardPageName(cy, dashboardPageAssert){
+    cy.contains(dashboardPageAssert)
 }
 
 function checkDashboardFourCats(cy, cat1, cat2, cat3, cat4){
@@ -31,7 +31,7 @@ function performLogout(cy, logoutAssert){
 // Exports
 module.exports = {
     checkTitleOfDashboardPage,
-    checkDashboardHeading,
+    checkDashboardPageName,
     checkDashboardFourCats,
     performLogout
 }

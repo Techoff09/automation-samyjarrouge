@@ -2,7 +2,7 @@ module.exports = {
 
     // Index page related test elements
 
-    base_url: 'http://localhost:3000',
+    base_url: 'http://localhost:3000/login',
     titleOfIndexPage: 'Testers Hotel',
     indexPageAssert: 'Login',
 
@@ -12,8 +12,9 @@ module.exports = {
 
     // Dashboard page related test elements
 
+    dash_url: 'http://localhost:3000/',
     titleOfDashboard: 'Testers Hotel',
-    dashboardHeading: 'Tester Hotel Overview',
+    dashboardPageAssert: 'Tester Hotel Overview',
     cat1: 'Rooms',
     cat2: 'Clients',
     cat3: 'Bills',
@@ -21,8 +22,16 @@ module.exports = {
     logoutAssert: 'Login',   // index page
 
     //Rooms
-   // rooms_url: 'http://localhost:3000/rooms'
-    rooms_url: '3000/rooms',
-    roomsPageHeader: 'Rooms',
+    rooms_url: '/rooms',
+    
+    //Bills
+    billsDashInfo1: 'Total:',
+    billsDashInfo2: 'Paid:',
+    bills_url: '/bills',
+    newBill_url: '/bill/new',
+    
+
+    //Clients
+    clients_url: '3000/clients',
 
 }

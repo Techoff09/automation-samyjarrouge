@@ -4,8 +4,10 @@ import * as targets from '../targets/targets'
 import * as indexFuncs from '../pages/indexPage'
 import * as dashboardFuncs00 from '../pages/dashboardPage'
 import * as roomsFuncs01 from '../pages/roomsPage'
-import * as billsFuncs02 from '../pages/billsPage'
-//import { confirmBillsPage } from '../pages/billsPage'
+import * as billsFuncs03 from '../pages/billsPage'
+import * as billsFuncs04 from '../pages/billsPage'
+import { base_url } from '../targets/targets'
+
 
 
 // Test suite
@@ -18,7 +20,7 @@ describe('Test suite', function(){
 
     beforeEach(()=>{
         cy.visit(targets.base_url)
-        indexFuncs.confirmIndexPage(cy, targets.titleOfIndexPage, targets.indexPageAssert)
+        indexFuncs.confirmIndexPage(cy, base_url, targets.titleOfIndexPage, targets.indexPageAssert)
         indexFuncs.performValidLogin(cy, targets.username, targets.password, targets.loginAssert)
         dashboardFuncs00.checkTitleOfDashboardPage(cy, targets.titleOfDashboard)
         dashboardFuncs00.checkDashboardPageName(cy, targets.dashboardPageAssert)
@@ -28,24 +30,34 @@ describe('Test suite', function(){
 
     // Ending every testcase with perform system logout, return to home page
 
-    afterEach(()=>{
+  /*  afterEach(()=>{
         dashboardFuncs00.performLogout(cy, targets.logoutAssert)
-    }) 
-
+    }) */
 
 
     // Test-case 01
-    it('Rooms page enter & exit ', function(){
+   /* it('Rooms page enter & exit ', function(){
         roomsFuncs01.confirmRoomsPage(cy, targets.rooms_url, 
            targets.cat1, targets.dash_url)
-   }) 
+   }) */
 
     //Test-case 02
-    it('Bills category', function(){
-        billsFuncs02.confirmBillsPage(cy, targets.billsDashInfo1, targets.billsDashInfo2,
-            targets.cat3, targets.bills_url, targets.newBill_url)
-       
-    }) 
+  /*  it('Bills: assert block data, enter page, enter Create Bill, exit Create Bill, assert main Bills page', function(){
+        billsFuncs02.confirmBillsBlockandPage(cy, targets.billsDashInfo1, targets.billsDashInfo2,
+            targets.cat3, targets.bills_url, targets.newBill_url) 
+    }) */
+
+    //Test-cast 03
+    it('Assert first bill card data and edit bill action', function(){
+        billsFuncs03.checkFirstBillCardData(cy, targets.bills_url, targets.bill1_url)
+
+    })
+
+    //Test-case 04
+    it('Edit first bill from Paid:No to Paid:Yes and Assert Paid:Yes & amount', function(){
+
+    })
+
 
 
   

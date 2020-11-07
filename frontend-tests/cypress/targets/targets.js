@@ -27,11 +27,12 @@ module.exports = {
     //Bills
     billsDashInfo1: 'Total:',
     billsDashInfo2: 'Paid:',
-    bills_url: '/bills',
+    bills_url: 'http://localhost:3000/bills',
     newBill_url: '/bill/new',
+    bill1_url: '/bill/1',
     
 
     //Clients
-    clients_url: '3000/clients',
+    clients_url: 'http://localhost:3000/clients',
 
 }

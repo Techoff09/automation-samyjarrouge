@@ -45,34 +45,35 @@ describe('Test suite', function(){
 
     // Ending every testcase with perform system logout, return to home page
 
-   /* afterEach(() => {
-        dashboardFuncs00.performLogout(cy, targets.logoutButton, targets.logoutAssert)
-    }) */
+    afterEach(() => {
+        indexFuncs00.performLogout(cy, targets.logoutButton, targets.logoutAssert)
+    }) 
+
 
     // Test-case 01
-    it.skip('Rooms page enter & exit ', function(){
+    it('Rooms page enter & exit ', function(){
         roomsFuncs01.confirmRoomsPage(cy, targets.rooms_url, 
            targets.cat1, targets.dash_url)
    }) 
 
     //Test-case 02
-    it.skip('Bills: assert block data, enter Bills page, enter & exit Create Bill page', function(){
+    it('Bills: assert block data, enter Bills page, enter & exit Create Bill page', function(){
         billsFuncs02.confirmBillsBlockandActionCreate(cy, targets.billsDashInfo1, targets.billsDashInfo2,
             targets.cat3, targets.bills_url, targets.newBill_url) 
     }) 
 
     //Test-cast 03
-    it.skip('Assert already existing bill 1 card data and Edit action', function(){
+    it('Assert already existing bill 1 card data and Edit action', function(){
         billsFuncs03.checkFirstBillCardData(cy, targets.bills_url, targets.bill1_url)
     }) 
 
     //Test-case 04
-    it('Assert Bill:1 page data fields. Change value and save.', function(){
+    it('Assert Bill:1 page data fields.Change value.Change paid & save.', function(){
         billsFuncs04.checkBill1PageDataFields(cy, targets.bill1_url)
     })
 
     //Test-case 05
-    it('Change Bill: 1 from Paid:No to Paid:Yes. Assert Paid:Yes & bill amount', function(){
+    it('Change Bill: 1 from Paid:No to Paid:Yes. Assert Paid:Yes', function(){
         billsFuncs05.performBill1UnpaidToPaid(cy,)
 
     })

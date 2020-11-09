@@ -1,17 +1,17 @@
 module.exports = {
 
-    // Index page related test elements
+    // Index page site test elements
 
     base_url: 'http://localhost:3000/login',
     siteTitle: 'Testers Hotel',
     indexPageAssert: 'Login',
-    logoutButton: '.user > .btn',
+    logoutButton: '.user > .btn',   //site-friendly
 
     username: 'tester01',
     password: 'GteteqbQQgSr88SwNExUQv2ydb7xuf8c',
     loginAssert: 'Welcome tester01!',   // first visible on dashboard page
 
-    // Dashboard page related test elements
+    // Dashboard & Bills test elements
 
     dash_url: 'http://localhost:3000/',
     dashboardPageAssert: 'Tester Hotel Overview',
@@ -31,8 +31,4 @@ module.exports = {
     newBill_url: '/bill/new',
     bill1_url: 'http://localhost:3000/bill/1',
     
-
-    //Clients
-    clients_url: 'http://localhost:3000/clients',
-
 }

@@ -29,7 +29,7 @@ function confirmBillsBlockandActionCreate (cy, billsDashInfo1, billsDashInfo2, c
     cy.get(createBillBackButton).should('have.attr', 'href').and('match', /bills/)
     cy.get(createBillBackButton).click()
     cy.get(billsPageName).should('contain', cat3)
-    cy.get(billsPageBackButton).should('attr', 'href', '/_').click()
+    cy.get(billsPageBackButton).should('attr', 'href', '/').click()
     cy.contains(dashboardPageAssert)
 }
     
@@ -47,7 +47,7 @@ function confirmBillsBlockandActionCreate (cy, billsDashInfo1, billsDashInfo2, c
 function checkFirstBillCardData (cy, bills_url, bill1_url){
     cy.visit(bills_url)
     cy.get(firstBillCard).children().should('have.length', 4)
-    cy.get(firstBillCardId).should('contain', 'ID: 1').next().should('contain', 'Value:').next().should('contain', 'Paid: No')
+    cy.get(firstBillCardId).should('contain', 'ID: 1').next().should('contain', 'Value:').next().should('contain', 'Paid: Yes')
     cy.get(firstBillAction).click()
     cy.contains('Delete')
     cy.get(firstBillActionMenu).contains('Edit').click()
@@ -108,12 +108,14 @@ function performBill1UnpaidToPaid (cy,){
     cy.get(bill1CardPaid).should('contain', 'Paid: Yes')
 }
 
-function nullifyBill1PaidCheckbox (cy,){
+// .clear() does not work on a class ="checkbox".Works on 'input' type="checkbox" & other selectors.
+
+/* function nullifyBill1PaidCheckbox (cy,){
     cy.visit(bill1_url)
     cy.get(bill1PaidCheckbox).clear()
     cy.get(bill1SaveButton).click()
     cy.visit(dash_url)
-}
+} */
 
 
 // Exports
@@ -122,6 +124,6 @@ module.exports = {
     checkFirstBillCardData,
     checkBill1PageDataFields,
     performBill1UnpaidToPaid,
-    nullifyBill1PaidCheckbox,
+    //nullifyBill1PaidCheckbox,
 
 }

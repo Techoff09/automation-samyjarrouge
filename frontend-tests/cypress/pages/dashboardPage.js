@@ -24,15 +24,11 @@ function checkDashboardFourCats(cy, cat1, cat2, cat3, cat4 ){
     })
 }
 
-function performLogout(cy, logoutButton, logoutAssert){
-    cy.get(logoutButton).click()
-    cy.contains(logoutAssert)
-}
 
 // Exports
 module.exports = {
     checkTitleOfDashboardPage,
     checkDashboardPageName,
     checkDashboardFourCats,
-    performLogout
+    
 }

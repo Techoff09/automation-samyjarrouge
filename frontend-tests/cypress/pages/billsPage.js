@@ -1,21 +1,21 @@
 /// <reference types="cypress" />
 
-const { billsDashInfo2, dashboardPageAssert, bills_url, bill1_url } = require("../targets/targets")
+const { billsDashInfo2, dashboardPageAssert, bills_url, bill1_url, dash_url } = require("../targets/targets")
 
-/* Elements: ConfirmBillsBlockandCreate */
+/* Elements: ConfirmBillsBlockandActionCreate */
 
 const billsBlock = '.blocks > :nth-child(3)'
 const billsViewButton = ':nth-child(3) > .btn' 
 const billsPageName = 'h2 > div'
 const createBillButton = 'a.btn.blue'
 const createBillBackButton = 'a.btn:nth-child(1)'
-const billsBackButton = 'a.btn:nth-child(1)' 
+//const billsBackButton = 'a.btn:nth-child(1)' 
 
-//const billsBackButton = ':nth-child(3) > .btn'
+const billsPageBackButton = ':nth-child(3) > .btn'
 
     // Actions / Function
 
-function confirmBillsBlockandCreate (cy, billsDashInfo1, billsDashInfo2, cat3,
+function confirmBillsBlockandActionCreate (cy, billsDashInfo1, billsDashInfo2, cat3,
                                      bills_url, newBill_url){
                                        
     cy.get(billsBlock).contains(billsDashInfo1)
@@ -29,6 +29,8 @@ function confirmBillsBlockandCreate (cy, billsDashInfo1, billsDashInfo2, cat3,
     cy.get(createBillBackButton).should('have.attr', 'href').and('match', /bills/)
     cy.get(createBillBackButton).click()
     cy.get(billsPageName).should('contain', cat3)
+    cy.get(billsPageBackButton).should('attr', 'href', '/_').click()
+    cy.contains(dashboardPageAssert)
 }
     
     /* Elements: checkFirstBillCardData */
@@ -40,7 +42,7 @@ function confirmBillsBlockandCreate (cy, billsDashInfo1, billsDashInfo2, cat3,
     const bills1pageName = 'h2 > div'
     
 
-    // Actions / function
+    // Actions / functions
 
 function checkFirstBillCardData (cy, bills_url, bill1_url){
     cy.visit(bills_url)
@@ -55,20 +57,20 @@ function checkFirstBillCardData (cy, bills_url, bill1_url){
   
     /* Elements: checkBill1PageDataFields */
 
+    const bill1BackButton = 'a.btn:nth-child(1)'
+    const bill1ValueField = ':nth-child(3) > input'
+    const bill1PaidCheckbox = '.checkbox'
+    const bill1SaveButton = '.blue'
+    const bill1CardValue = 'div.card:nth-child(1) > div:nth-child(2)'
     
-    const IdField = ':nth-child(1) > input'
-    const createdField = ':nth-child(2) > input'
-    const bill1FieldArea = '#app > :nth-child(2) > :nth-child(2)'
-    //const bill1FieldArea = 'div.container:nth-child(2) > div:nth-child(2)'
-    
+    // Actions / functions
 
 function checkBill1PageDataFields (cy, bill1_url){
     cy.visit(bill1_url)
     cy.contains('Bill: 1').should('be.visible')
-    cy.get('a.btn:nth-child(1)').should('attr', 'href', '/bills')
-    //cy.get('[=Delete]')
+    cy.get(bill1BackButton).should('attr', 'href', '/bills')
 
-   
+    cy.get('label').should('have.length', 4)
     cy.get('label:first').contains('label', 'ID').next().should('be.disabled')
     .and('have.value','1')
     
@@ -78,20 +80,48 @@ function checkBill1PageDataFields (cy, bill1_url){
 
     cy.get('label').contains('label', 'Value (SEK)', {matchcase: false})
     .next().should('not.be.disabled').and('have.attr', 'type','number')
-    cy.get(':nth-child(3) > input').clear().type('5000') 
+    cy.get(bill1ValueField).clear().type('5000') 
 
+    cy.get('label:last').contains('label', 'Paid')
+    .next().should('not.be.disabled').and('have.property', 'submit')
+    cy.get(bill1PaidCheckbox).click()
+
+    cy.get(bill1SaveButton).click()
+    cy.url().should('eq', bills_url)
+    cy.get(bill1CardValue).should('contain', '5000kr') 
 }
 
-function performBill1UnpaidToPaid (cy,){
+    /* Elements: performBillUnpaidToPaid */
+    //const firstBillAction = ':nth-child(1) > .action'
+    //const firstBillActionMenu = ':nth-child(1) > div:nth-child(5)'
+    //const bill1PaidCheckbox = '.checkbox'
+    const bill1CardPaid = ':nth-child(1) > .paid'
 
+function performBill1UnpaidToPaid (cy,){
+    cy.visit(bills_url)
+    cy.get(bill1CardPaid).should('contain', 'Paid: No')
+    cy.get(firstBillAction).click()
+    cy.get(firstBillActionMenu).contains('Edit').click()
+    cy.get(bill1PaidCheckbox).click()
+    cy.get(bill1SaveButton).click()
+    cy.url().should('eq', bills_url)
+    cy.get(bill1CardPaid).should('contain', 'Paid: Yes')
+}
+
+function nullifyBill1PaidCheckbox (cy,){
+    cy.visit(bill1_url)
+    cy.get(bill1PaidCheckbox).clear()
+    cy.get(bill1SaveButton).click()
+    cy.visit(dash_url)
 }
 
 
 // Exports
 module.exports = {
-    confirmBillsBlockandCreate,
+    confirmBillsBlockandActionCreate,
     checkFirstBillCardData,
     checkBill1PageDataFields,
     performBill1UnpaidToPaid,
+    nullifyBill1PaidCheckbox,
 
 }

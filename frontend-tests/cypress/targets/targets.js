@@ -3,17 +3,17 @@ module.exports = {
     // Index page related test elements
 
     base_url: 'http://localhost:3000/login',
-    titleOfIndexPage: 'Testers Hotel',
+    siteTitle: 'Testers Hotel',
     indexPageAssert: 'Login',
+    logoutButton: '.user > .btn',
 
     username: 'tester01',
     password: 'GteteqbQQgSr88SwNExUQv2ydb7xuf8c',
-    loginAssert: 'Welcome tester01!',   // dashboard page
+    loginAssert: 'Welcome tester01!',   // first visible on dashboard page
 
     // Dashboard page related test elements
 
     dash_url: 'http://localhost:3000/',
-    titleOfDashboard: 'Testers Hotel',
     dashboardPageAssert: 'Tester Hotel Overview',
     cat1: 'Rooms',
     cat2: 'Clients',
@@ -29,7 +29,7 @@ module.exports = {
     billsDashInfo2: 'Paid:',
     bills_url: 'http://localhost:3000/bills',
     newBill_url: '/bill/new',
-    bill1_url: '/bill/1',
+    bill1_url: 'http://localhost:3000/bill/1',
     
 
     //Clients

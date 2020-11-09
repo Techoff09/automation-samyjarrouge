@@ -17,15 +17,15 @@ import { base_url } from '../targets/targets'
 describe('Test suite', function(){
     
     
-    /* Did not work needed "Error: Webpack Compilation Error"
-        need a "Loader" - module bundler https://webpack.js.org/concepts/#loaders 
+// Did not work needed "Error: Webpack Compilation Error"
+       // need a "Loader" - module bundler https://webpack.js.org/concepts/#loaders 
     
-        before(() => {
-            cy.document(indexHeadMeta)
+       /* before(() => {
+            cy.document()
             it('check main index <head> for <title> content', ()=> {
                 cy.title().should('eq', 'Testers Hotel')
             })
-        })     */
+        })  */    
     
     /* Onset to every testcase will start on home page:
     Perfrom user "tester01" login, enter site Dashboard and assert Dashboard page. */
@@ -63,7 +63,7 @@ describe('Test suite', function(){
     }) 
 
     //Test-cast 03
-    it('Assert already existing bill 1 card data and Edit action', function(){
+    it.only('Assert already existing bill 1 card data and Edit action', function(){
         billsFuncs03.checkFirstBillCardData(cy, targets.bills_url, targets.bill1_url)
     }) 
 

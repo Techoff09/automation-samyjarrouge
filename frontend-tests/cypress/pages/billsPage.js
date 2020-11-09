@@ -47,7 +47,7 @@ function confirmBillsBlockandActionCreate (cy, billsDashInfo1, billsDashInfo2, c
 function checkFirstBillCardData (cy, bills_url, bill1_url){
     cy.visit(bills_url)
     cy.get(firstBillCard).children().should('have.length', 4)
-    cy.get(firstBillCardId).should('contain', 'ID: 1').next().should('contain', 'Value:').next().should('contain', 'Paid: Yes')
+    cy.get(firstBillCardId).should('contain', 'ID: 1').next().should('contain', 'Value:').next().should('contain', 'Paid:')
     cy.get(firstBillAction).click()
     cy.contains('Delete')
     cy.get(firstBillActionMenu).contains('Edit').click()

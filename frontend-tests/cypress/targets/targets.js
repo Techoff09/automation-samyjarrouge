@@ -1,17 +1,19 @@
 module.exports = {
 
-    // Index page site test elements
+    // Index page & site test elements
 
     base_url: 'http://localhost:3000/login',
     siteTitle: 'Testers Hotel',
+    siteHeaderLogo: 'Tester Hotel',    //Header first visible on dashpage then across entire site
     indexPageAssert: 'Login',
-    logoutButton: '.user > .btn',   //site-friendly
+    logoutButton: '.user > .btn',   // entire site access. Only works when class is saved in pages/targets
+    //logoutButton: 'button.btn',
 
     username: 'tester01',
     password: 'GteteqbQQgSr88SwNExUQv2ydb7xuf8c',
-    loginAssert: 'Welcome tester01!',   // first visible on dashboard page
+    loginAssert: 'Welcome tester01!',   // first visible on dashpage then across entire site
 
-    // Dashboard & Bills test elements
+    // Dashboard 
 
     dash_url: 'http://localhost:3000/',
     dashboardPageAssert: 'Tester Hotel Overview',
@@ -23,6 +25,12 @@ module.exports = {
 
     //Rooms
     rooms_url: '/rooms',
+    //createroom_url: '/room/new',
+
+    //Clients
+    //clientsDashInfo1: 'Number:',
+    clients_url: '/clients',
+    createClientButton_url: '/client/new',
     
     //Bills
     billsDashInfo1: 'Total:',

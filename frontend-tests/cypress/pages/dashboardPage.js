@@ -3,6 +3,7 @@
 
 // Elements 
 const dashBlockCats = '.block h4'
+const site_HeaderLogo = ' h1 > .router-link-active'
 
 
 // Actions / Functions
@@ -11,9 +12,18 @@ function checkTitleOfDashboardPage(cy, siteTitle){
     cy.title().should('eq', siteTitle)  
 }
 
+function checkURLDashboardPage(cy, dash_url){
+    cy.url().should('eq', dash_url)
+}
+
+function checkSiteHeaderLogo(cy, siteHeaderLogo){
+    cy.get(site_HeaderLogo).should('attr', 'href', '/').and('have.text', siteHeaderLogo)
+}
+
 function checkDashboardPageName(cy, dashboardPageAssert){
     cy.contains(dashboardPageAssert)
 }
+
 
 function checkDashboardFourCats(cy, cat1, cat2, cat3, cat4 ){
     cy.get(dashBlockCats).should('have.length', 4).then(($el) => {
@@ -25,9 +35,13 @@ function checkDashboardFourCats(cy, cat1, cat2, cat3, cat4 ){
 }
 
 
+
+
 // Exports
 module.exports = {
     checkTitleOfDashboardPage,
+    checkURLDashboardPage,
+    checkSiteHeaderLogo,
     checkDashboardPageName,
     checkDashboardFourCats,
     

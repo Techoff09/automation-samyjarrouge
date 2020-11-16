@@ -1,0 +1,176 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-11-16T07:01:42.200Z",
+    "end": "2020-11-16T07:01:59.738Z",
+    "duration": 17538,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "af6e7126-7552-4567-acd5-0747c5c8550f",
+      "title": "",
+      "fullFile": "cypress/integration/regression-page-objects.spec.js",
+      "file": "cypress/integration/regression-page-objects.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fd0be5b3-41a2-4b37-8a37-7e3abedb096f",
+          "title": "Test suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Rooms dashinfo/Page assert. Enter & exit ",
+              "fullTitle": "Test suite Rooms dashinfo/Page assert. Enter & exit ",
+              "timedOut": null,
+              "duration": 3116,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_dashBlockPages[\"default\"].confirmRoomsPage(cy, targets.rooms_url, targets.siteHeaderLogo, targets.cat1, targets.dash_url, targets.dashboardPageAssert);",
+              "err": {},
+              "uuid": "3cbd44e4-22c4-45e9-9956-55e6a1a22bb8",
+              "parentUUID": "fd0be5b3-41a2-4b37-8a37-7e3abedb096f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Clients dashinfo/Page assert. Enter & exit",
+              "fullTitle": "Test suite Clients dashinfo/Page assert. Enter & exit",
+              "timedOut": null,
+              "duration": 2599,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_dashBlockPages[\"default\"].confirmClientsPage(cy, targets.clients_url, targets.siteHeaderLogo, targets.cat2, targets.createClientButton_url, targets.dash_url, targets.dashboardPageAssert);",
+              "err": {},
+              "uuid": "7f3e1a19-d837-453d-a2d0-8a8745c831e2",
+              "parentUUID": "fd0be5b3-41a2-4b37-8a37-7e3abedb096f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Bills dashinfo/Page assert. Enter & exit",
+              "fullTitle": "Test suite Bills dashinfo/Page assert. Enter & exit",
+              "timedOut": null,
+              "duration": 2793,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_dashBlockPages[\"default\"].confirmBillsPage(cy, targets.bills_url, targets.siteHeaderLogo, targets.cat3, targets.newBill_url, targets.dash_url, targets.dashboardPageAssert);",
+              "err": {},
+              "uuid": "c1e107ee-6422-4e7e-9245-43a997e7418b",
+              "parentUUID": "fd0be5b3-41a2-4b37-8a37-7e3abedb096f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Reservations dashinfo/page assert. Enter & Exit.",
+              "fullTitle": "Test suite Reservations dashinfo/page assert. Enter & Exit.",
+              "timedOut": null,
+              "duration": 2486,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_dashBlockPages[\"default\"].confirmReservationPage(cy, targets.reserv_url, targets.siteHeaderLogo, targets.cat4, targets.newReserv_url, targets.dash_url, targets.dashboardPageAssert);",
+              "err": {},
+              "uuid": "f2d4cca5-3388-4d2b-a196-8195cadf03b6",
+              "parentUUID": "fd0be5b3-41a2-4b37-8a37-7e3abedb096f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Assert New Client page. Create new client. Assert new client on /clients page",
+              "fullTitle": "Test suite Assert New Client page. Create new client. Assert new client on /clients page",
+              "timedOut": null,
+              "duration": 3886,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "createClientFuncs05.createNewClient(cy, targets.clientsComplete_url, targets.newClient_url, targets.cat2_0, targets.clients_url, targets.cat2);",
+              "err": {},
+              "uuid": "0e99bb91-4451-4baa-9b34-b15745435b63",
+              "parentUUID": "fd0be5b3-41a2-4b37-8a37-7e3abedb096f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3cbd44e4-22c4-45e9-9956-55e6a1a22bb8",
+            "7f3e1a19-d837-453d-a2d0-8a8745c831e2",
+            "c1e107ee-6422-4e7e-9245-43a997e7418b",
+            "f2d4cca5-3388-4d2b-a196-8195cadf03b6",
+            "0e99bb91-4451-4baa-9b34-b15745435b63"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 14880,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.1.0"
+    }
+  }
+}

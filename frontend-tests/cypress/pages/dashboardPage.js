@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 
-// Elements 
+// Elements: dashboard page 
 const dashBlockCats = '.block h4'
 const site_HeaderLogo = ' h1 > .router-link-active'
 

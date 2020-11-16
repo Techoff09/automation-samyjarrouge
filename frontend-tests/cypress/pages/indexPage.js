@@ -4,19 +4,18 @@
 const { base_url } = require("../targets/targets")
 
 // Elements Index
-
-//const headerSiteRef = 'cy.get('h1 > .router-link-active')
 const usernameTextfield = ':nth-child(1) > input'
 const passwordTextField = ':nth-child(2) > input'
 const loginButton = '.btn'
 //const logoutButton = '.user > .btn'   //site-friendly button.btn
-//const logoutButton = 'button.btn'  
+
 
 // Actions / Functions
 
-function confirmIndexPage(cy, base_url, siteTitle, indexPageAssert){
+function confirmIndexPage(cy, base_url, siteTitle, siteHeaderLogo, indexPageAssert){
     cy.visit(base_url)
     cy.title().should('eq', siteTitle)
+    cy.get('header').contains('header', siteHeaderLogo, {matchcase: false})
     cy.contains(indexPageAssert)
 }
 

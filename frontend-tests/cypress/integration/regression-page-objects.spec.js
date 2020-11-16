@@ -8,25 +8,26 @@ import {
     default as roomsFuncs01,
     default as clientsFuncs02, 
     default as billsFuncs03,
-    
+    default as reservFuncs04,
 } from '../pages/dashBlockPages'
 
+import * as createClientFuncs05 from '../pages/newClientPage'
     
-//import * as roomsFuncs01. billsFuncs02 from '../pages/dashBlocksPages'
+
 
 // Test suite
 describe('Test suite', function(){
     
     
-    /* Onset to every testcase will start on home page:
-    Perfrom user "tester01" login, enter site Dashboard and assert Dashboard page. */
+    /* Every testcase onset will start on index page:
+    Perfrom user "tester01" login. Assert Dashboard page and Dashboard cats. */
    
 
     // Test-cases 00
 
     beforeEach(() => {
         cy.visit(targets.base_url)
-        indexFuncs00.confirmIndexPage(cy, targets.base_url, targets.siteTitle, targets.indexPageAssert)
+        indexFuncs00.confirmIndexPage(cy, targets.base_url, targets.siteTitle, targets.siteHeaderLogo, targets.indexPageAssert)
         indexFuncs00.performValidLogin(cy, targets.username, targets.password, targets.loginAssert)
         dashboardFuncs00.checkTitleOfDashboardPage(cy, targets.siteTitle)
         dashboardFuncs00.checkURLDashboardPage(cy, targets.dash_url)
@@ -36,7 +37,7 @@ describe('Test suite', function(){
             targets.cat3, targets.cat4)
     }) 
 
-    // Ending every testcase with perform system logout, return to home page
+    // Ending every testcase with perform site-wide system logout, returns to index page
 
     afterEach(() => {
         indexFuncs00.performLogout(cy, targets.logoutButton,targets.logoutAssert)
@@ -44,37 +45,32 @@ describe('Test suite', function(){
 
 
     // Test-case 01
-    it.only('Rooms dashinfo assert. Enter & exit ', function(){
+    it('Rooms dashinfo/Page assert. Enter & exit ', function(){
         roomsFuncs01.confirmRoomsPage(cy, targets.rooms_url, targets.siteHeaderLogo, 
            targets.cat1, targets.dash_url, targets.dashboardPageAssert)
-   }) 
+    }) 
 
     //Test-case 02
-    it.skip('Clients dashinfo assert. Clients Enter & exit', function(){
+    it('Clients dashinfo/Page assert. Enter & exit', function(){
         clientsFuncs02.confirmClientsPage(cy, targets.clients_url, targets.siteHeaderLogo, targets.cat2, 
             targets.createClientButton_url, targets.dash_url, targets.dashboardPageAssert)
-
     })
 
-
-    /*it('Bills: assert block data, enter Bills page, enter & exit Create Bill page', function(){
-        billsFuncs02.confirmBillsBlockandActionCreate(cy, targets.billsDashInfo1, targets.billsDashInfo2,
-            targets.cat3, targets.bills_url, targets.newBill_url) 
-    }) */
-
     //Test-cast 03
-    it.skip('Assert already existing bill 1 card data and Edit action', function(){
-        billsFuncs03.checkFirstBillCardData(cy, targets.bills_url, targets.bill1_url)
+    it('Bills dashinfo/Page assert. Enter & exit', function(){
+        billsFuncs03.confirmBillsPage(cy, targets.bills_url, targets.siteHeaderLogo, targets.cat3, targets.newBill_url,
+            targets.dash_url, targets.dashboardPageAssert)
     }) 
 
     //Test-case 04
-    it.skip('Assert Bill:1 page data fields.Change value.Change paid & save.', function(){
-        billsFuncs04.checkBill1PageDataFields(cy, targets.bill1_url)
+    it('Reservations dashinfo/page assert. Enter & Exit.', function(){
+        reservFuncs04.confirmReservationPage(cy, targets.reserv_url, targets.siteHeaderLogo, targets.cat4, targets.newReserv_url,
+            targets.dash_url, targets.dashboardPageAssert)      
     })
 
     //Test-case 05
-    it.skip('Change Bill: 1 from Paid:No to Paid:Yes. Assert Paid:Yes', function(){
-        billsFuncs05.performBill1UnpaidToPaid(cy,)
+    it('Assert New Client page. Create new client. Assert new client on /clients page', function(){
+        createClientFuncs05.createNewClient(cy, targets.clientsComplete_url, targets.newClient_url, targets.cat2_0, targets.clients_url, targets.cat2)
 
     })
 

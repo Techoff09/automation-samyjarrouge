@@ -28,7 +28,7 @@ describe('Test suite', function(){
         })  */    
     
     /* Onset to every testcase will start on home page:
-    Perfrom user "tester01" login, enter site Dashboard and assert Dashboard page. */
+    Perform user "tester01" login, enter site Dashboard and assert Dashboard page. */
    
     // Test-cases 00
 
